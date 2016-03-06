@@ -28,8 +28,6 @@
         <!--<property name="authorizationCacheName" value="authorizationCache"/>-->
     </bean>
 
-    <!-- 会话ID生成器 -->
-    <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
 
     <!-- 会话Cookie模板 -->
     <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
@@ -52,18 +50,25 @@
         <property name="cookie" ref="rememberMeCookie"/>
     </bean>
 
-
-    <!--<bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">-->
-        <!--<property name="activeSessionsCacheName" value="shiro-activeSessionCache"/>-->
-        <!--<property name="sessionIdGenerator" ref="sessionIdGenerator"/>-->
-    <!--</bean>-->
-
     <!-- 会话验证调度器 -->
     <bean id="sessionValidationScheduler" class="org.apache.shiro.session.mgt.quartz.QuartzSessionValidationScheduler">
         <property name="sessionValidationInterval" value="1800000"/>
         <property name="sessionManager" ref="sessionManager"/>
     </bean>
-
+    
+    <!-- 会话ID生成器 -->
+    <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
+    
+    <!-- Shiro缓存的会话DAO -->
+    <bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
+        <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/>
+        <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
+    </bean>
+    
+    <!-- Redis缓存的会话Dao -->
+    <bean id="customShiroSessionDao" class="com.wicky.mansys.shiro.session.CustomShiroSessionDao" />
+    <bean id="shiroSessionDao" class="com.wicky.mansys.shiro.session.ShiroSessionDao" />
+    
     <!-- 会话管理器 -->
     <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
         <property name="globalSessionTimeout" value="1800000"/>
@@ -74,16 +79,7 @@
         <property name="sessionIdCookieEnabled" value="true"/>
         <property name="sessionIdCookie" ref="sessionIdCookie"/>
     </bean>
-
-    <!-- 会话DAO -->
-    <bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
-        <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/>
-        <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
-    </bean>
-
-    <bean id="customShiroSessionDao" class="com.wicky.mansys.shiro.session.CustomShiroSessionDao" />
-
-    <bean id="shiroSessionDao" class="com.wicky.mansys.shiro.session.ShiroSessionDao" />
+    
     <!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="userRealm"/>
