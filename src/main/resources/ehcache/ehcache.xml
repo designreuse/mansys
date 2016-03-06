@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache name="baseframe">
+    <diskStore path="java.io.tmpdir"/>
+    <defaultCache
+            maxElementsInMemory="1000"
+            eternal="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            overflowToDisk="true"
+            />
+
+    <!-- 登录记录缓存 锁定10分钟 -->
+    <cache name="passwordRetryCache"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false">
+    </cache>
+
+    <cache name="authorizationCache"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false">
+    </cache>
+
+    <cache name="authenticationCache"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false">
+    </cache>
+
+    <cache name="shiro-activeSessionCache"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToLiveSeconds="0"
+           timeToIdleSeconds="0"
+           diskPersistent="false"
+           overflowToDisk="false"
+           diskExpiryThreadIntervalSeconds="600">
+    </cache>
+
+    <cache name="org.hibernate.cache.spi.UpdateTimestampsCache"
+           maxElementsInMemory="5000"
+           eternal="true"
+           overflowToDisk="false"/>
+    <cache name="org.hibernate.cache.internal.StandardQueryCache"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToLiveSeconds="120"
+           overflowToDisk="false"/>
+    <cache name="com.cares.biz.entity.UserVO"
+           maxElementsInMemory="2000"
+           eternal="false"
+           timeToIdleSeconds="120"
+           timeToLiveSeconds="120"
+           overflowToDisk="false"/>
+</ehcache>
