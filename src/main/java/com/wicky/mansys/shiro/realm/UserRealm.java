@@ -1,7 +1,8 @@
 package com.wicky.mansys.shiro.realm;
 
-import com.cares.biz.service.IUserService;
-import com.cares.biz.entity.UserVO;
+import com.wicky.biz.entity.UserVO;
+import com.wicky.biz.service.IUserService;
+
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;

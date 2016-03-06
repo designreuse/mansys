@@ -14,7 +14,7 @@
 
     <!-- 开启controller注解支持 -->
     <!-- 注意事项请参考：http://jinnianshilongnian.iteye.com/blog/1762632 -->
-    <context:component-scan base-package="com.cares.**.web.controller" use-default-filters="false">
+    <context:component-scan base-package="com.wicky.**.web.controller" use-default-filters="false">
         <context:include-filter type="annotation"
                                 expression="org.springframework.stereotype.Controller"/>
         <context:include-filter type="annotation"
@@ -24,7 +24,7 @@
 
     <mvc:annotation-driven>
         <mvc:argument-resolvers>
-            <bean class="com.cares.biz.web.bind.method.CurrentUserMethodArgumentResolver"/>
+            <bean class="com.wicky.biz.web.bind.method.CurrentUserMethodArgumentResolver"/>
         </mvc:argument-resolvers>
     </mvc:annotation-driven>
 
@@ -54,7 +54,7 @@
           class="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver">
     </bean>
 
-    <bean class="com.cares.biz.web.exception.DefaultExceptionHandler"/>
+    <bean class="com.wicky.biz.web.exception.DefaultExceptionHandler"/>
 
     <import resource="spring-mvc-shiro.xml"/>
 

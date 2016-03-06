@@ -53,7 +53,7 @@
            eternal="false"
            timeToLiveSeconds="120"
            overflowToDisk="false"/>
-    <cache name="com.cares.biz.entity.UserVO"
+    <cache name="com.wicky.biz.entity.UserVO"
            maxElementsInMemory="2000"
            eternal="false"
            timeToIdleSeconds="120"

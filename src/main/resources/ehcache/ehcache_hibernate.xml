@@ -31,14 +31,12 @@
            timeToLiveSeconds="120"
            overflowToDisk="false"/>
 
-    <!--
-    java文件注解查找cache方法名的策略：如果不指定java文件注解中的region="ehcache.xml中的name的属性值",
-    则使用name名为com.lysoft.bean.user.User的cache(即类的全路径名称), 如果不存在与类名匹配的cache名称, 则用 defaultCache
-    如果User包含set集合, 则需要另行指定其cache
-    例如User包含citySet集合, 则也需要
-    添加配置到ehcache.xml中
-    -->
-    <cache name="com.cares.biz.entity.UserVO"
+	<!-- 
+	java文件注解查找cache方法名的策略：如果不指定java文件注解中的region="ehcache.xml中的name的属性值", 
+	则使用name名为com.lysoft.bean.user.User的cache(即类的全路径名称), 如果不存在与类名匹配的cache名称, 则用 
+	defaultCache 如果User包含set集合, 则需要另行指定其cache 例如User包含citySet集合, 则也需要 添加配置到ehcache.xml中 
+	-->
+    <cache name="com.wicky.biz.entity.UserVO"
            maxElementsInMemory="2000"
            eternal="false"
            timeToIdleSeconds="120"

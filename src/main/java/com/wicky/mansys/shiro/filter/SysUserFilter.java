@@ -1,7 +1,8 @@
 package com.wicky.mansys.shiro.filter;
 
-import com.cares.biz.service.IUserService;
-import com.cares.biz.web.Constants;
+import com.wicky.biz.service.IUserService;
+import com.wicky.biz.web.Constants;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.web.filter.PathMatchingFilter;
 import org.springframework.beans.factory.annotation.Autowired;

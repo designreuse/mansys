@@ -7,7 +7,7 @@
             http://www.springframework.org/schema/tx
             http://www.springframework.org/schema/tx/spring-tx-4.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <context:component-scan base-package="com.cares.biz"/>
+    <context:component-scan base-package="com.wicky.biz"/>
 
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
@@ -52,7 +52,7 @@
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="com.cares.biz.entity"/>
+        <property name="packagesToScan" value="com.wicky.biz.entity"/>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
@@ -100,7 +100,7 @@
 
     <aop:config expose-proxy="true">
         <!-- 只对业务逻辑层实施事务 -->
-        <aop:pointcut id="txPointcut" expression="execution(* com.cares.biz.service.impl..*.*(..))"/>
+        <aop:pointcut id="txPointcut" expression="execution(* com.wicky.biz.service.impl..*.*(..))"/>
         <!-- Advisor定义，切入点和通知分别为txPointcut、txAdvice -->
         <aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"/>
     </aop:config>

@@ -1,8 +1,9 @@
 package com.wicky.mansys.shiro.session;
 
+import com.wicky.biz.web.Constants;
 import com.wicky.mansys.cache.redis.RedisDao;
 import com.wicky.mansys.util.SerializeUtil;
-import com.cares.biz.web.Constants;
+
 import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 
