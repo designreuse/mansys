@@ -327,13 +327,12 @@
 				<executions>
 					<execution>
 						<id>copy-stylesheets</id>
-						<phase>compile</phase>
+						<phase>validate</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/css</outputDirectory>
-							<outputDirectory>${project.build.directory}/m2e-wtp/web-resources/css</outputDirectory>
+							<outputDirectory>${project.build.directory}/assets-output/css</outputDirectory>
 							<resources>
 								<resource>
 									<directory>src/main/assets/stylesheets</directory>
@@ -348,13 +347,12 @@
 					</execution>
 					<execution>
 						<id>copy-javascripts</id>
-						<phase>compile</phase>
+						<phase>validate</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/js</outputDirectory>
-							<outputDirectory>${project.build.directory}/m2e-wtp/web-resources/js</outputDirectory>
+							<outputDirectory>${project.build.directory}/assets-output/js</outputDirectory>
 							<resources>
 								<resource>
 									<directory>src/main/assets/javascripts</directory>
@@ -369,13 +367,12 @@
 					</execution>
 					<execution>
 						<id>copy-images</id>
-						<phase>compile</phase>
+						<phase>validate</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/img</outputDirectory>
-							<outputDirectory>${project.build.directory}/m2e-wtp/web-resources/img</outputDirectory>
+							<outputDirectory>${project.build.directory}/assets-output/img</outputDirectory>
 							<resources>
 								<resource>
 									<directory>src/main/assets/images</directory>
@@ -388,13 +385,12 @@
 
 					<execution>
 						<id>copy-vendor-stylesheets</id>
-						<phase>compile</phase>
+						<phase>validate</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/css/plugins</outputDirectory>
-							<outputDirectory>${project.build.directory}/m2e-wtp/web-resources/css/plugins</outputDirectory>
+							<outputDirectory>${project.build.directory}/assets-output/css/plugins</outputDirectory>
 							<resources>
 								<resource>
 									<directory>src/main/vendor/stylesheets</directory>
@@ -409,13 +405,12 @@
 					</execution>
 					<execution>
 						<id>copy-vendor-javascripts</id>
-						<phase>compile</phase>
+						<phase>validate</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/js/plugins</outputDirectory>
-							<outputDirectory>${project.build.directory}/m2e-wtp/web-resources/js/plugins</outputDirectory>
+							<outputDirectory>${project.build.directory}/assets-output/js/plugins</outputDirectory>
 							<resources>
 								<resource>
 									<directory>src/main/vendor/javascripts</directory>
@@ -430,13 +425,12 @@
 					</execution>
 					<execution>
 						<id>copy-vendor-images</id>
-						<phase>compile</phase>
+						<phase>validate</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/img</outputDirectory>
-							<outputDirectory>${project.build.directory}/m2e-wtp/web-resources/img</outputDirectory>
+							<outputDirectory>${project.build.directory}/assets-output/img</outputDirectory>
 							<resources>
 								<resource>
 									<directory>src/main/vendor/images</directory>
@@ -449,13 +443,12 @@
 					
 					<execution>
 						<id>copy-public-resources</id>
-						<phase>compile</phase>
+						<phase>validate</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/</outputDirectory>
-							<outputDirectory>${project.build.directory}/m2e-wtp/web-resources/</outputDirectory>
+							<outputDirectory>${project.build.directory}/assets-output/</outputDirectory>
 							<resources>
 								<resource>
 									<directory>src/main/public</directory>
@@ -465,6 +458,44 @@
 						</configuration>
 						<inherited></inherited>
 					</execution>
+					
+					<!-- copy to target folders -->
+					<execution>
+						<id>copy-to-war</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.build.directory}/assets-output/</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+						<inherited></inherited>
+					</execution>
+					
+					<execution>
+						<id>copy-to-eclipse</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/m2e-wtp/web-resources/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.build.directory}/assets-output/</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+						<inherited></inherited>
+					</execution>
+					
 				</executions>
 			</plugin>
 
