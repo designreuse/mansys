@@ -299,22 +299,12 @@
 						<inherited>false</inherited>
 						<configuration>
 							<inputSyntax>scss</inputSyntax>
-							<inputPath>${basedir}/src/main/assets/stylesheets/_scss</inputPath>
-							<includePath>${basedir}/src/main/assets/stylesheets/_scss/plugins/</includePath>
-							<outputPath>${basedir}/src/main/assets/stylesheets/</outputPath>
+							<inputPath>${basedir}/src/main/assets/stylesheets/</inputPath>
+							<includePath>${basedir}/src/main/assets/stylesheets/plugins/</includePath>
+							<outputPath>${project.build.directory}/generated-css/</outputPath>
 							<generateSourceMap>true</generateSourceMap>
-							<sourceMapOutputPath>${basedir}/src/main/assets/stylesheets/</sourceMapOutputPath>
+							<sourceMapOutputPath>${project.build.directory}/generated-css/</sourceMapOutputPath>
 							<outputStyle>nested</outputStyle>
-
-							<resources>
-								<resource>
-									<directory>${basedir}/src/main/assets/stylesheets/_scss</directory>
-									<excludes>
-										<exclude>**/*.*</exclude>
-									</excludes>
-								</resource>
-							</resources>
-
 						</configuration>
 					</execution>
 				</executions>
@@ -325,6 +315,23 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.6</version>
 				<executions>
+					<execution>
+						<id>copy-generated-css</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/assets-output/css</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.build.directory}/generated-css/</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+						<inherited></inherited>
+					</execution>
 					<execution>
 						<id>copy-stylesheets</id>
 						<phase>validate</phase>
