@@ -116,6 +116,7 @@
         </property>
         <property name="filterChainDefinitions">
             <value>
+            	/static/** = anon
                 /login = authc
                 /logout = logout
                 /authenticated = authc

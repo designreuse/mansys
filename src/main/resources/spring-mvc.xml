@@ -32,7 +32,7 @@
     <mvc:default-servlet-handler/>
 
     <!-- 静态资源映射 -->
-    <mvc:resources mapping="/**" location="/" />
+    <mvc:resources mapping="/static/**" location="/WEB-INF/static/" />
 
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
         <!-- 在没有扩展名时即: "/blog/1" 时的默认展现形式 -->
@@ -42,7 +42,7 @@
         <list>
             <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
             <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-                <property name="prefix" value="/WEB-INF/jsp/"/>
+                <property name="prefix" value="/"/>
                 <property name="suffix" value=".jsp"/>
             </bean>
         </list>

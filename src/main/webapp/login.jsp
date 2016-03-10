@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 
@@ -11,11 +12,11 @@
 
     <title>INSPINIA | Login 2</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="<s:url value="/static/css/bootstrap.min.css" />" rel="stylesheet">
+    <link href="<s:url value="/static/font-awesome/css/font-awesome.css" />" rel="stylesheet">
 
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="<s:url value="/static/css/animate.css" />" rel="stylesheet">
+    <link href="<s:url value="/static/css/style.css" />" rel="stylesheet">
 
 </head>
 
@@ -46,7 +47,7 @@
             </div>
             <div class="col-md-6">
                 <div class="ibox-content">
-                	<c:if test="${error}">
+                	<c:if test="${error != null}">
 					<div class="alert alert-danger alert-dismissable">
 						<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
 						${error}
@@ -54,10 +55,13 @@
 					</c:if>
 					<form class="m-t" role="form" action="" method="post">
                         <div class="form-group">
-                            <input name="username" type="email" class="form-control" placeholder="Username" required="" value="<shiro:principal/>" />
+                            <input name="username" type="text" class="form-control" placeholder="Username" required="" value="<shiro:principal/>" />
                         </div>
                         <div class="form-group">
                             <input name="password" type="password" class="form-control" placeholder="Password" required="">
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="rememberMe" value="true"/> Remember Me
                         </div>
                         <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
 
@@ -82,7 +86,7 @@
                 Copyright Example Company
             </div>
             <div class="col-md-6 text-right">
-               <small>Â© 2014-2015</small>
+               <small>© 2014-2015</small>
             </div>
         </div>
     </div>
