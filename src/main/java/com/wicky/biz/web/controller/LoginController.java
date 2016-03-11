@@ -26,11 +26,12 @@ public class LoginController {
         } else if(IncorrectCredentialsException.class.getName().equals(exceptionClassName)) {
             error = "用户名/密码错误";
         } else if(ExcessiveAttemptsException.class.getName().equals(exceptionClassName)) {
-        	error = "已超过重试次数，请一小时后再试。";
+        	error = "该账号已锁定，请一小时后重试";
         } else if(AuthenticationException.class.getName().equals(exceptionClassName)) {
-        	error = "该用户不存在";
+        	error = "用户名/密码错误";
         } else if(exceptionClassName != null) {
-            error = "其他错误：" + exceptionClassName;
+            error = "发生未知错误，请稍后重试";
+            System.err.println("!!! 登陆发生未知错误：" + exceptionClassName);
         }
         model.addAttribute("error", error);
         return "login";
