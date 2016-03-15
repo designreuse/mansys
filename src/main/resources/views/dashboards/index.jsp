@@ -1,3 +1,6 @@
+<%@ taglib tagdir="/WEB-INF/tags" prefix="w" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +15,7 @@
 </head>
 
 <body>
+
     <div class="row  border-bottom white-bg dashboard-header">
 
                     <div class="col-sm-3">

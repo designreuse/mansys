@@ -332,6 +332,23 @@
 				<version>2.6</version>
 				<executions>
 					<execution>
+						<id>copy-tags</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>src/main/webapp/WEB-INF/tags</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/main/resources/tags</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+						<inherited></inherited>
+					</execution>
+					<execution>
 						<id>copy-generated-css</id>
 						<phase>validate</phase>
 						<goals>

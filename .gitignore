@@ -7,3 +7,4 @@
 .springBeans
 .README.md.html
 /src/main/resources/application.properties
+/src/main/webapp/WEB-INF/tags/

@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
-
+<c:set var="showSkinConfig" value="false" />
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,9 +42,11 @@
 </head>
 
 <body>
+	<c:if test="${showSkinConfig}">
 	<!-- Skin configuration box -->
 	<jsp:include page="skin-config.jsp" />
- 
+	</c:if>
+	
 	<!-- Wrapper-->
     <div id="wrapper" class="${controllerName}.${controllerAction}">
     
@@ -91,5 +93,9 @@
 	<!-- Include javascript per-view -->
 	<sitemesh:write property='page.script' />
 	
+	<c:if test="${showSkinConfig}">
+	<!-- Skin configuration box -->
+	<jsp:include page="skin-config.script.jsp" />
+	</c:if>
 </body>
 </html>
