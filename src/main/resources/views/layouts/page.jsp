@@ -1,3 +1,5 @@
+<%@page import="org.springframework.web.context.WebApplicationContext"%>
+<%@page import="com.wicky.biz.web.layouts.PipelineHolder"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
@@ -16,8 +18,10 @@
     
 	<meta name="controller" content="${controllerName}" />
 	<meta name="action" content="${controllerAction}" />
-	<% 
-	java.util.Map<String, java.util.List<String>> styles = com.wicky.biz.web.layouts.PipelineHolder.getInstance().getStyles();
+	<%
+	PipelineHolder holder = PipelineHolder.getInstance();
+	
+	java.util.Map<String, java.util.List<String>> styles = holder.getStyles();
 	String controllerName = (String)request.getAttribute("controllerName");
 	java.util.List<String> controllerCssList = styles.get(controllerName);
 	if(controllerCssList != null && !controllerCssList.isEmpty()){
@@ -41,7 +45,7 @@
 		out.println(scriptTags);
 	}
 	
-	java.util.Map<String, java.util.List<String>> javascripts = com.wicky.biz.web.layouts.PipelineHolder.getInstance().getJavascripts();
+	java.util.Map<String, java.util.List<String>> javascripts = holder.getJavascripts();
 	java.util.List<String> mainJSList = javascripts.get("*");
 	if(mainJSList != null && !mainJSList.isEmpty()){
 		String scriptTags = "";

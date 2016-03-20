@@ -1,4 +1,4 @@
-package com.wicky.biz.web.controller;
+package com.wicky.biz.web.controller.admin;
 
 import com.wicky.biz.entity.OrganizationVO;
 import com.wicky.biz.entity.RoleVO;
@@ -36,7 +36,7 @@ public class UserController {
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model model) {
         model.addAttribute("userList", userService.findAll());
-        return "user/list";
+        return "admin/user/list";
     }
 
     @RequiresPermissions("user:create")
@@ -45,7 +45,7 @@ public class UserController {
         setCommonData(model);
         model.addAttribute("user", new UserVO());
         model.addAttribute("op", "新增");
-        return "user/edit";
+        return "admin/user/edit";
     }
 
     @RequiresPermissions("user:create")
@@ -72,7 +72,7 @@ public class UserController {
 
         model.addAttribute("user", user);
         model.addAttribute("op", "修改");
-        return "user/edit";
+        return "admin/user/edit";
     }
 
     @RequiresPermissions("user:update")
@@ -89,7 +89,7 @@ public class UserController {
 //        setCommonData(model);
 //        model.addAttribute("user", userService.findOne(id));
 //        model.addAttribute("op", "删除");
-//        return "user/edit";
+//        return "admin/user/edit";
 //    }
 
     @RequiresPermissions("user:delete")
@@ -106,7 +106,7 @@ public class UserController {
     public String showChangePasswordForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.findOne(id));
         model.addAttribute("op", "修改密码");
-        return "user/changePassword";
+        return "admin/user/changePassword";
     }
 
     @RequiresPermissions("user:update")

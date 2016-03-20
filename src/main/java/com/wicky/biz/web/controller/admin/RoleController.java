@@ -1,4 +1,4 @@
-package com.wicky.biz.web.controller;
+package com.wicky.biz.web.controller.admin;
 
 import com.wicky.biz.entity.ResourceVO;
 import com.wicky.biz.entity.RoleVO;
@@ -30,7 +30,7 @@ public class RoleController {
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model model) {
         model.addAttribute("roleList", roleService.findAll());
-        return "role/list";
+        return "admin/role/list";
     }
 
     @RequiresPermissions("role:create")
@@ -39,7 +39,7 @@ public class RoleController {
         setCommonData(model);
         model.addAttribute("role", new RoleVO());
         model.addAttribute("op", "新增");
-        return "role/edit";
+        return "admin/role/edit";
     }
 
     @RequiresPermissions("role:create")
@@ -65,7 +65,7 @@ public class RoleController {
         }
         model.addAttribute("role", role);
         model.addAttribute("op", "修改");
-        return "role/edit";
+        return "admin/role/edit";
     }
 
     @RequiresPermissions("role:update")
@@ -82,7 +82,7 @@ public class RoleController {
 //        setCommonData(model);
 //        model.addAttribute("role", roleService.findOne(id));
 //        model.addAttribute("op", "删除");
-//        return "role/edit";
+//        return "admin/role/edit";
 //    }
 
     @RequiresPermissions("role:delete")

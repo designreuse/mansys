@@ -1,4 +1,4 @@
-package com.wicky.biz.web.controller;
+package com.wicky.biz.web.controller.admin;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -34,7 +34,7 @@ public class LoginController {
             System.err.println("!!! 登陆发生未知错误：" + exceptionClassName);
         }
         model.addAttribute("error", error);
-        return "login";
+        return "admin/login";
     }
 
 }

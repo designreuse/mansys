@@ -10,7 +10,7 @@
 </head>
 <body>
 	<!-- XXX -->
-	<w:imgPath src="/aaa.png" />
+	<w:asset src="/aaa.png" folder="img" />
 	<w:img src="12312" alt="asfsefa" class="123123" agase="123123" sss="11asef"/>
 	<w:script src="12312" alt="asfsefa" class="123123" agase="123123" sss="11asef"/>
 	<w:style src="xxx" id="123" />

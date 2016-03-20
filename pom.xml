@@ -307,7 +307,7 @@
 				<executions>
 					<execution>
 						<id>first</id>
-						<phase>validate</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>compile</goal>
 						</goals>
@@ -333,7 +333,7 @@
 				<executions>
 					<execution>
 						<id>copy-tags</id>
-						<phase>validate</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
@@ -350,7 +350,7 @@
 					</execution>
 					<execution>
 						<id>copy-generated-css</id>
-						<phase>validate</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
@@ -367,7 +367,7 @@
 					</execution>
 					<execution>
 						<id>copy-stylesheets</id>
-						<phase>validate</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
@@ -387,7 +387,7 @@
 					</execution>
 					<execution>
 						<id>copy-javascripts</id>
-						<phase>validate</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
@@ -407,7 +407,7 @@
 					</execution>
 					<execution>
 						<id>copy-images</id>
-						<phase>validate</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
@@ -425,7 +425,7 @@
 
 					<execution>
 						<id>copy-vendor-stylesheets</id>
-						<phase>validate</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
@@ -445,7 +445,7 @@
 					</execution>
 					<execution>
 						<id>copy-vendor-javascripts</id>
-						<phase>validate</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
@@ -465,7 +465,7 @@
 					</execution>
 					<execution>
 						<id>copy-vendor-images</id>
-						<phase>validate</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
@@ -483,7 +483,7 @@
 
 					<execution>
 						<id>copy-public-resources</id>
-						<phase>validate</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
@@ -502,7 +502,7 @@
 					<!-- copy to target folders -->
 					<execution>
 						<id>copy-to-war</id>
-						<phase>validate</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
@@ -520,7 +520,7 @@
 
 					<execution>
 						<id>copy-to-eclipse</id>
-						<phase>validate</phase>
+						<phase>compile</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>

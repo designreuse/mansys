@@ -1,4 +1,4 @@
-package com.wicky.biz.web.controller;
+package com.wicky.biz.web.controller.admin;
 
 import com.wicky.biz.entity.ResourceVO;
 import com.wicky.biz.service.IResourceService;
@@ -33,7 +33,7 @@ public class ResourceController {
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model model) {
         model.addAttribute("resourceList", resourceService.findAll());
-        return "resource/list";
+        return "admin/resource/list";
     }
 
     @RequiresPermissions("resource:create")
@@ -46,7 +46,7 @@ public class ResourceController {
         child.setParentIds(parent.makeSelfAsParentIds());
         model.addAttribute("resource", child);
         model.addAttribute("op", "新增子节点");
-        return "resource/edit";
+        return "admin/resource/edit";
     }
 
     @RequiresPermissions("resource:create")
@@ -62,7 +62,7 @@ public class ResourceController {
     public String showUpdateForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("resource", resourceService.findOne(id));
         model.addAttribute("op", "修改");
-        return "resource/edit";
+        return "admin/resource/edit";
     }
 
     @RequiresPermissions("resource:update")

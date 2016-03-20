@@ -1,4 +1,4 @@
-package com.wicky.biz.web.controller;
+package com.wicky.biz.web.controller.admin;
 
 import com.wicky.biz.entity.OrganizationVO;
 import com.wicky.biz.service.IOrganizationService;
@@ -27,7 +27,7 @@ public class OrganizationController {
     @RequiresPermissions("organization:view")
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
-        return "organization/index";
+        return "admin/organization/index";
     }
 
     @RequiresPermissions("organization:view")
@@ -38,7 +38,7 @@ public class OrganizationController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "organization/tree";
+        return "admin/organization/tree";
     }
 
     @RequiresPermissions("organization:create")
@@ -56,7 +56,7 @@ public class OrganizationController {
         child.setParentIds(parent.makeSelfAsParentIds());
         model.addAttribute("child", child);
         model.addAttribute("op", "新增");
-        return "organization/appendChild";
+        return "admin/organization/appendChild";
     }
 
     @RequiresPermissions("organization:create")
@@ -67,7 +67,7 @@ public class OrganizationController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/organization/success";
+        return "redirect:/admin/organization/success";
     }
 
     @RequiresPermissions("organization:update")
@@ -78,7 +78,7 @@ public class OrganizationController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "organization/maintain";
+        return "admin/organization/maintain";
     }
 
     @RequiresPermissions("organization:update")
@@ -90,7 +90,7 @@ public class OrganizationController {
             e.printStackTrace();
         }
         redirectAttributes.addFlashAttribute("msg", "修改成功");
-        return "redirect:/organization/success";
+        return "redirect:/admin/organization/success";
     }
 
     @RequiresPermissions("organization:delete")
@@ -102,7 +102,7 @@ public class OrganizationController {
             e.printStackTrace();
         }
         redirectAttributes.addFlashAttribute("msg", "删除成功");
-        return "redirect:/organization/success";
+        return "redirect:/admin/organization/success";
     }
 
 
@@ -117,7 +117,7 @@ public class OrganizationController {
         }
         model.addAttribute("source", source);
         model.addAttribute("targetList", organizationService.findAllWithExclude(source));
-        return "organization/move";
+        return "admin/organization/move";
     }
 
     @RequiresPermissions("organization:update")
@@ -134,13 +134,13 @@ public class OrganizationController {
             e.printStackTrace();
         }
         organizationService.doMove(source, target);
-        return "redirect:/organization/success";
+        return "redirect:/admin/organization/success";
     }
 
     @RequiresPermissions("organization:view")
     @RequestMapping(value = "/success", method = RequestMethod.GET)
     public String success() {
-        return "organization/success";
+        return "admin/organization/success";
     }
 
 
