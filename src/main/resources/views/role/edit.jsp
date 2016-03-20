@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="/WEB-INF/tld/fn.tld" prefix="fn" %>
 <html>
 <head>
     <title></title>
@@ -43,7 +42,7 @@
         <form:hidden path="resourceIds"/>
         <input type="text"
                id="resourceName"
-               value="${fn:resourceNames(role.resourceList)}" readonly>
+               value="" readonly>
         <a id="menuBtn" href="#">选择</a>
     </div>
 

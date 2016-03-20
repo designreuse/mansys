@@ -40,7 +40,7 @@ public class PipelineHolder {
 		
 		// init special path for script
 		specialJavascriptPathMap.put("", "");
-		//initJavascriptHolder();
+		initJavascriptHolder();
 	}
 
 	private void initCssHolder() {
@@ -84,10 +84,7 @@ public class PipelineHolder {
 							}
 							
 							if(requireDescLine.contains("require_self")){
-								String cssContent = content.replaceAll("\\/\\*([^\\*^\\/]*|[\\*^\\/*]*|[^\\**\\/]*)*\\*\\/", "").replaceAll("\\s*", "");
-								if(!cssContent.isEmpty()){
-									cssList.add(appContext + "/static/css/" + fileNameAsController.replace(".scss", ".css"));
-								}
+								cssList.add(appContext + "/static/css/" + fileNameAsController.replace(".scss", ".css"));
 							}else{
 								String targetCssName = requireDescLine.replaceFirst("( )*\\*( )?=( )?require( )*", "").trim();
 								if(!targetCssName.isEmpty()){
@@ -129,52 +126,46 @@ public class PipelineHolder {
 					
 					String content = readFileContent(path);
 					
-					Matcher matcher = Pattern.compile("\\/\\*([^\\*^\\/]*|[\\*^\\/*]*|[^\\**\\/]*)*\\*\\/").matcher(content);
-					if(matcher.find()){
-						String firstComment = matcher.group();
-//						System.out.println(firstComment);
-						
-						Matcher matcher2 = Pattern.compile("\\*=( )?require.*").matcher(firstComment);
-						while(matcher2.find()){
-							String requireDescLine = matcher2.group();
-							System.out.println(requireDescLine);
+					Matcher matcher = Pattern.compile("( )*//( )?=( )?require .*").matcher(content);
+					boolean found = false;
+					while(matcher.find()){
+						found = true;
+						String requireDescLine = matcher.group();
+						System.out.println(requireDescLine);
 							
-							
-							List<String> cssList = null;
-							if(fileNameAsController.equals("application.scss")){
-								cssList = styles.get("*");
-								if(cssList == null){
-									cssList = new ArrayList<>();
-									styles.put("*", cssList);
-								}
-							}else{
-								String controller = fileNameAsController.replace(".scss", "");
-								cssList = styles.get(controller);
-								if(cssList == null){
-									cssList = new ArrayList<>();
-									styles.put(controller, cssList);
-								}
+						List<String> jsList = null;
+						if(fileNameAsController.equals("application.js")){
+							jsList = javascripts.get("*");
+							if(jsList == null){
+								jsList = new ArrayList<>();
+								javascripts.put("*", jsList);
 							}
-							
-							if(requireDescLine.contains("require_self")){
-								String cssContent = content.replaceAll("\\/\\*([^\\*^\\/]*|[\\*^\\/*]*|[^\\**\\/]*)*\\*\\/", "").replaceAll("\\s*", "");
-								if(!cssContent.isEmpty()){
-									cssList.add(appContext + "/static/css/" + fileNameAsController.replace(".scss", ".css"));
-								}
-							}else{
-								String targetCssName = requireDescLine.replaceFirst("( )*\\*=( )?require( )*", "");
-								String filePath = appContext + "/static/css/" + targetCssName;
-								// for special css file mapping
-								if(specialCssPathMap.containsKey(targetCssName)){
-									filePath = specialCssPathMap.get(targetCssName);
-								}
-								if(!filePath.contains(".") || !filePath.endsWith(".css")){
-									filePath += ".css";
-								}
-								cssList.add(filePath);
+						}else{
+							String controller = fileNameAsController.replace(".js", "");
+							jsList = javascripts.get(controller);
+							if(jsList == null){
+								jsList = new ArrayList<>();
+								javascripts.put(controller, jsList);
 							}
 						}
-					}else{
+						
+						if(requireDescLine.contains("require_self")){
+							jsList.add(appContext + "/static/js/" + fileNameAsController);
+						}else{
+							String targetJSName = requireDescLine.replaceFirst("( )*//( )?=( )?require( )*", "");
+							String filePath = appContext + "/static/js/" + targetJSName;
+							// for special js file mapping
+							if(specialJavascriptPathMap.containsKey(targetJSName)){
+								filePath = specialJavascriptPathMap.get(targetJSName);
+							}
+							if(!filePath.contains(".") || !filePath.endsWith(".js")){
+								filePath += ".js";
+							}
+							jsList.add(filePath);
+						}
+					}
+					
+					if(!found){
 						System.out.println("No Comments Found!");
 					}
 					System.out.println("---------------------");
@@ -184,7 +175,7 @@ public class PipelineHolder {
 			e1.printStackTrace();
 		}
 
-		System.out.println("Styles: " + styles);
+		System.out.println("Javascripts: " + javascripts);
 	}
 
 	private String readFileContent(Path path) {

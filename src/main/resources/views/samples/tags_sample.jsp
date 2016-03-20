@@ -9,6 +9,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<w:resp greeting="Hi" name="William" />
+	<!-- XXX -->
+	<w:imgPath src="/aaa.png" />
+	<w:img src="12312" alt="asfsefa" class="123123" agase="123123" sss="11asef"/>
+	<w:script src="12312" alt="asfsefa" class="123123" agase="123123" sss="11asef"/>
+	<w:style src="xxx" id="123" />
+	<!-- XXX -->
 </body>
 </html>

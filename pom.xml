@@ -430,7 +430,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/assets-output/css/plugins</outputDirectory>
+							<outputDirectory>${project.build.directory}/assets-output/css</outputDirectory>
 							<resources>
 								<resource>
 									<directory>src/main/vendor/stylesheets</directory>
@@ -450,7 +450,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.build.directory}/assets-output/js/plugins</outputDirectory>
+							<outputDirectory>${project.build.directory}/assets-output/js</outputDirectory>
 							<resources>
 								<resource>
 									<directory>src/main/vendor/javascripts</directory>

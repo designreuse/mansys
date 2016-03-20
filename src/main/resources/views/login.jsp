@@ -12,10 +12,10 @@
 
     <title>INSPINIA | Login 2</title>
 
-    <link href="<s:url value="/static/css/bootstrap.min.css" />" rel="stylesheet">
-    <link href="<s:url value="/static/font-awesome/css/font-awesome.css" />" rel="stylesheet">
+    <link href="<s:url value="/static/css/bootstrap/bootstrap.min.css" />" rel="stylesheet">
+    <link href="<s:url value="/static/css/font-awesome/font-awesome.css" />" rel="stylesheet">
 
-    <link href="<s:url value="/static/css/animate.css" />" rel="stylesheet">
+    <link href="<s:url value="/static/css/animate/animate.css" />" rel="stylesheet">
     <link href="<s:url value="/static/css/style.css" />" rel="stylesheet">
 
 </head>
@@ -92,8 +92,8 @@
     </div>
 
     <!-- Mainly scripts -->
-    <script src="<s:url value="/static/js/jquery-2.1.1.js" />"></script>
-    <script src="<s:url value="/static/js/bootstrap.min.js" />"></script>
+    <script src="<s:url value="/static/js/jquery/jquery-2.1.1.js" />"></script>
+    <script src="<s:url value="/static/js/bootstrap/bootstrap.min.js" />"></script>
 
 </body>
 

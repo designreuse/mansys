@@ -6,11 +6,8 @@
 <head>
     <title>INSPINIA | Dashboard</title>
 
-    <!-- Toastr style -->
-    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
-
     <!-- Gritter -->
-    <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    <w:style src="js/gritter/jquery.gritter.css" />
 
 </head>
 
@@ -213,7 +210,7 @@
 
                                                 <div class="feed-element">
                                                     <a href="profile.html" class="pull-left">
-                                                        <img alt="image" class="img-circle" src="img/profile.jpg">
+                                                        <w:img alt="image" class="img-circle" src="img/profile.jpg" />
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right">5m ago</small>
@@ -225,7 +222,7 @@
 
                                                 <div class="feed-element">
                                                     <a href="profile.html" class="pull-left">
-                                                        <img alt="image" class="img-circle" src="img/a2.jpg">
+                                                        <w:img alt="image" class="img-circle" src="img/a2.jpg" />
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right">2h ago</small>
@@ -235,7 +232,7 @@
                                                 </div>
                                                 <div class="feed-element">
                                                     <a href="profile.html" class="pull-left">
-                                                        <img alt="image" class="img-circle" src="img/a3.jpg">
+                                                        <w:img alt="image" class="img-circle" src="img/a3.jpg" />
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right">2h ago</small>
@@ -245,7 +242,7 @@
                                                 </div>
                                                 <div class="feed-element">
                                                     <a href="profile.html" class="pull-left">
-                                                        <img alt="image" class="img-circle" src="img/a4.jpg">
+                                                        <w:img alt="image" class="img-circle" src="img/a4.jpg" />
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right text-navy">5h ago</small>
@@ -259,7 +256,7 @@
                                                 </div>
                                                 <div class="feed-element">
                                                     <a href="profile.html" class="pull-left">
-                                                        <img alt="image" class="img-circle" src="img/a5.jpg">
+                                                        <w:img alt="image" class="img-circle" src="img/a5.jpg" />
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right">2h ago</small>
@@ -276,7 +273,7 @@
                                                 </div>
                                                 <div class="feed-element">
                                                     <a href="profile.html" class="pull-left">
-                                                        <img alt="image" class="img-circle" src="img/profile.jpg">
+                                                        <w:img alt="image" class="img-circle" src="img/profile.jpg" />
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right">23h ago</small>
@@ -286,7 +283,7 @@
                                                 </div>
                                                 <div class="feed-element">
                                                     <a href="profile.html" class="pull-left">
-                                                        <img alt="image" class="img-circle" src="img/a7.jpg">
+                                                        <w:img alt="image" class="img-circle" src="img/a7.jpg" />
                                                     </a>
                                                     <div class="media-body ">
                                                         <small class="pull-right">46h ago</small>
@@ -438,38 +435,17 @@
             </div>
         </div>
 
-    <!-- Flot -->
-    <script src="js/plugins/flot/jquery.flot.js"></script>
-    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="js/plugins/flot/jquery.flot.spline.js"></script>
-    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
-
     <!-- Peity -->
-    <script src="js/plugins/peity/jquery.peity.min.js"></script>
     <script src="js/demo/peity-demo.js"></script>
 
-    <!-- Custom and plugin javascript -->
-    <script src="js/inspinia.js"></script>
-    <script src="js/plugins/pace/pace.min.js"></script>
-
     <!-- jQuery UI -->
-    <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="js/jquery-ui/jquery-ui.min.js"></script>
 
     <!-- GITTER -->
-    <script src="js/plugins/gritter/jquery.gritter.min.js"></script>
-
-    <!-- Sparkline -->
-    <script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="js/gritter/jquery.gritter.min.js"></script>
 
     <!-- Sparkline demo data  -->
     <script src="js/demo/sparkline-demo.js"></script>
-
-    <!-- ChartJS-->
-    <script src="js/plugins/chartJs/Chart.min.js"></script>
-
-    <!-- Toastr -->
-    <script src="js/plugins/toastr/toastr.min.js"></script>
     
 </body>
 </html>

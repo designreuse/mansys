@@ -1,3 +1,4 @@
+<%@ taglib tagdir="/WEB-INF/tags" prefix="w" %>
 <!DOCTYPE html>
 <html>
 
@@ -26,7 +27,7 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                            <w:img alt="image" class="img-circle" src="img/profile_small.jpg" />
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
@@ -271,7 +272,7 @@
                         <li>
                             <div class="dropdown-messages-box">
                                 <a href="profile.html" class="pull-left">
-                                    <img alt="image" class="img-circle" src="img/a7.jpg">
+                                    <w:img alt="image" class="img-circle" src="img/a7.jpg" />
                                 </a>
                                 <div>
                                     <small class="pull-right">46h ago</small>
@@ -284,7 +285,7 @@
                         <li>
                             <div class="dropdown-messages-box">
                                 <a href="profile.html" class="pull-left">
-                                    <img alt="image" class="img-circle" src="img/a4.jpg">
+                                    <w:img alt="image" class="img-circle" src="img/a4.jpg" />
                                 </a>
                                 <div>
                                     <small class="pull-right text-navy">5h ago</small>
@@ -297,7 +298,7 @@
                         <li>
                             <div class="dropdown-messages-box">
                                 <a href="profile.html" class="pull-left">
-                                    <img alt="image" class="img-circle" src="img/profile.jpg">
+                                    <w:img alt="image" class="img-circle" src="img/profile.jpg" />
                                 </a>
                                 <div>
                                     <small class="pull-right">23h ago</small>
@@ -830,7 +831,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a1.jpg">
+                                        <w:img alt="image" class="img-circle message-avatar" src="img/a1.jpg" />
 
                                         <div class="m-t-xs">
                                             <i class="fa fa-star text-warning"></i>
@@ -848,7 +849,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a2.jpg">
+                                        <w:img alt="image" class="img-circle message-avatar" src="img/a2.jpg" />
                                     </div>
                                     <div class="media-body">
                                         The point of using Lorem Ipsum is that it has a more-or-less normal.
@@ -860,7 +861,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a3.jpg">
+                                        <w:img alt="image" class="img-circle message-avatar" src="img/a3.jpg" />
 
                                         <div class="m-t-xs">
                                             <i class="fa fa-star text-warning"></i>
@@ -878,7 +879,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a4.jpg">
+                                        <w:img alt="image" class="img-circle message-avatar" src="img/a4.jpg" />
                                     </div>
 
                                     <div class="media-body">
@@ -891,7 +892,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a8.jpg">
+                                        <w:img alt="image" class="img-circle message-avatar" src="img/a8.jpg" />
                                     </div>
                                     <div class="media-body">
 
@@ -904,7 +905,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a7.jpg">
+                                        <w:img alt="image" class="img-circle message-avatar" src="img/a7.jpg" />
                                     </div>
                                     <div class="media-body">
                                         Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
@@ -916,7 +917,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a3.jpg">
+                                        <w:img alt="image" class="img-circle message-avatar" src="img/a3.jpg" />
 
                                         <div class="m-t-xs">
                                             <i class="fa fa-star text-warning"></i>
@@ -934,7 +935,7 @@
                             <div class="sidebar-message">
                                 <a href="#">
                                     <div class="pull-left text-center">
-                                        <img alt="image" class="img-circle message-avatar" src="img/a4.jpg">
+                                        <w:img alt="image" class="img-circle message-avatar" src="img/a4.jpg" />
                                     </div>
                                     <div class="media-body">
                                         Uncover many web sites still in their infancy. Various versions have.

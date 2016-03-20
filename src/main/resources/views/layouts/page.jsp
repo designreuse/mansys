@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="w" %>
 <!DOCTYPE html>
 <html>
 <c:set var="showSkinConfig" value="false" />
@@ -13,30 +14,45 @@
 	
     <title><sitemesh:write property='title' /></title>
     
-	<!-- Include style per-controller - vendor plugins -->
-	<!-- include-controller-css -->
-	
-	<!-- Main css styles -->
+	<meta name="controller" content="${controllerName}" />
+	<meta name="action" content="${controllerAction}" />
 	<% 
 	java.util.Map<String, java.util.List<String>> styles = com.wicky.biz.web.layouts.PipelineHolder.getInstance().getStyles();
+	String controllerName = (String)request.getAttribute("controllerName");
+	java.util.List<String> controllerCssList = styles.get(controllerName);
+	if(controllerCssList != null && !controllerCssList.isEmpty()){
+		String scriptTags = "";
+		for(String cssPath: controllerCssList){
+			scriptTags += ("<link href=\""+cssPath+"\" rel=\"stylesheet\" />\n	");
+		}%>
+	<!-- Include style per-controller - vendor plugins -->
+	<%
+		out.println(scriptTags);
+	}
+ 
 	java.util.List<String> mainCssList = styles.get("*");
 	if(mainCssList != null && !mainCssList.isEmpty()){
-		String mainScriptTags = "";
-		for(String mainCssPath: mainCssList){
-			mainScriptTags += ("<link href=\""+mainCssPath+"\" rel=\"stylesheet\" />\n	");
-		}
-		out.println(mainScriptTags);
+		String scriptTags = "";
+		for(String cssPath: mainCssList){
+			scriptTags += ("<link href=\""+cssPath+"\" rel=\"stylesheet\" />\n	");
+		}%>
+	<!-- Main css styles -->
+	<%
+		out.println(scriptTags);
+	}
+	
+	java.util.Map<String, java.util.List<String>> javascripts = com.wicky.biz.web.layouts.PipelineHolder.getInstance().getJavascripts();
+	java.util.List<String> mainJSList = javascripts.get("*");
+	if(mainJSList != null && !mainJSList.isEmpty()){
+		String scriptTags = "";
+		for(String jsPath: mainJSList){
+			scriptTags += ("<script src=\""+jsPath+"\"></script>\n	");
+		}%>
+	<!-- Main javascript files -->
+	<%
+		out.println(scriptTags);
 	}
 	%>
-
-	<!-- Main javascript files -->
-	<!-- include-main-js -->
-	
-<%--     <script src="js/jquery-2.1.1.js"></script> --%>
-<%--     <script src="js/bootstrap.min.js"></script> --%>
-<%--     <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script> --%>
-<%--     <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script> --%>
-    
 	<sitemesh:write property='head' />
 	
 </head>
@@ -86,10 +102,31 @@
         
     </div>
 	<!-- End wrapper-->
-	
+	<% 
+	java.util.List<String> contollerJSList = javascripts.get(controllerName);
+	if(contollerJSList != null && !contollerJSList.isEmpty()){
+		String scriptTags = "";
+		for(String jsPath: contollerJSList){
+			scriptTags += ("<script src=\""+jsPath+"\"></script>\n	");
+		}%>
 	<!-- Include javascript per-controller - vendor plugins -->
-	<!-- include-controller-js -->
-
+	<%
+		out.println(scriptTags);
+	}
+	%>
+	<% 
+	String actionName = (String)request.getAttribute("controllerAction");
+	java.util.List<String> ctlActionList = javascripts.get(controllerName + "." + actionName);
+	if(ctlActionList != null && !ctlActionList.isEmpty()){
+		String scriptTags = "";
+		for(String jsPath: ctlActionList){
+			scriptTags += ("<script src=\""+jsPath+"\"></script>\n	");
+		}%>
+	<!-- Include javascript per-action -->
+	<%
+		out.println(scriptTags);
+	}
+	%>
 	<!-- Include javascript per-view -->
 	<sitemesh:write property='page.script' />
 	
